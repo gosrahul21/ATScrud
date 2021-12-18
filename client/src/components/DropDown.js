@@ -17,8 +17,8 @@ export default function DropDown() {
         <div className='relative border-2 rounded-md border-gray-300 md:hidden'>
             <MenuIcon onClick = {(e)=>{e.stopPropagation(); setShow(!show);}} className="cursor-pointer text-gray-600"/>
             {show&&<div className="absolute right-0 shadow-md bg-white whitespace-nowrap">
-                <p className='px-4 py-2' onClick={()=>navigate('/add')}>Add Employee</p>
-                <p className='px-4 py-2' onClick={()=>navigate('/')}>View Employees</p>
+                <p className='px-4 py-2 cursor-pointer hover:bg-gray-50' onClick={()=>navigate('/add')}>Add Employee</p>
+                <p className='px-4 py-2 cursor-pointer hover:bg-gray-50' onClick={()=>navigate('/')}>View Employees</p>
             </div>}
         </div>
     )

@@ -9,7 +9,7 @@ export default function ViewEmployees() {
     const navigate = useNavigate();
 
     function getEmployees (){
-        axios.get(process.env.API_PATH)
+        axios.get(process.env.REACT_APP_API_URL)
         .then((res)=>setEmployees(res.data)).catch((err)=>{
             //error
         })
@@ -21,7 +21,7 @@ export default function ViewEmployees() {
     },[])
 
     const deleteItem = (id)=>{
-        axios.delete(`${process.env.API_PATH}/${id}`).then(()=>{
+        axios.delete(`${process.env.REACT_APP_API_URL}/${id}`).then(()=>{
             getEmployees();
         }).catch((err)=>{
             //error
