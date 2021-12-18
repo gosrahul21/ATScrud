@@ -9,7 +9,7 @@ export default function ViewEmployees() {
     const navigate = useNavigate();
 
     function getEmployees (){
-        axios.get('http://localhost:8000/employee')
+        axios.get(process.env.API_PATH)
         .then((res)=>setEmployees(res.data)).catch((err)=>{
             //error
         })
@@ -21,7 +21,7 @@ export default function ViewEmployees() {
     },[])
 
     const deleteItem = (id)=>{
-        axios.delete(`http://localhost:8000/employee/${id}`).then(()=>{
+        axios.delete(`${process.env.API_PATH}/${id}`).then(()=>{
             getEmployees();
         }).catch((err)=>{
             //error
@@ -31,7 +31,7 @@ export default function ViewEmployees() {
     const renderList = ()=>{
 
         return employees.map(({_id,emp_name,dob,salary,emp_designation},id)=>(
-            <tr className={`px-1 sm:px-2 md:px-4 ${id%2!=0?'bg-gray-100':'bg-white'}`} key={id}>
+            <tr className={`px-1 sm:px-2 md:px-4 ${id%2!==0?'bg-gray-100':'bg-white'}`} key={id}>
             <td className='p-1 md:p-2' >{id+1}  </td>
             <td className='p-1 md:p-2' > {emp_name} </td>
             <td className='p-1 md:p-2' > {new Date(dob).toLocaleDateString()}</td>

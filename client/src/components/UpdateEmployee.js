@@ -12,15 +12,15 @@ export default function EmployeeForm() {
     const navigate = useNavigate();
     useEffect(()=>{
         
-        axios.get('http://localhost:8000/employee/'+id).then(({data})=>{
+        axios.get(`${process.env.API_PATH}/${id}`).then(({data})=>{
             setFormData(data);
             console.log(data)
         });
-    },[]);
+    },[id]);
 
 
     const updateEmployee = ()=>{
-        axios.put('http://localhost:8000/employee/'+id,formData).then(({data})=>{
+        axios.put(`${process.env.API_PATH}/${id}`,formData).then(({data})=>{
             console.log(data)
             navigate('/')
         }).catch((err)=>{

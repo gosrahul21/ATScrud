@@ -9,7 +9,7 @@ export default function EmployeeForm() {
     const navigate = useNavigate();
 
     const createEmployee = ()=>{
-        axios.post('http://localhost:8000/employee',formData).then(({data})=>{
+        axios.post(process.env.API_PATH,formData).then(({data})=>{
             // console.log(data)
             navigate('/')
         }).catch((err)=>{
